@@ -1,12 +1,59 @@
 spring:
   application:
     name: spring-cloud-eureka
-
 server:
   port: 8000
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
     service-url:
       defaultZone: http://localhost:${server.port}/eureka/
+
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  profiles: peer1
+
+server:
+  port: 8000
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    service-url:
+      defaultZone: http://peer2:8001/eureka/,http://peer3:8002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  profiles: peer2
+
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      defaultZone: http://peer1:8000/eureka/,http://peer3:8002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  profiles: peer3
+
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: peer3
+    lease-expiration-duration-in-seconds:
+  client:
+    service-url:
+      defaultZone: http://peer1:8000/eureka/,http://peer2:8001/eureka/
+    register-with-eureka: true
+    fetch-registry: true
