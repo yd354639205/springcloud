@@ -1,5 +1,6 @@
 package com.cloud.producercopy;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 @RestController
 public class ProducerCopyApplication {
+    @Value("${hello}")
+    private String hello;
 
     public static void main(String[] args) {
         SpringApplication.run(ProducerCopyApplication.class, args);
@@ -18,6 +21,6 @@ public class ProducerCopyApplication {
 
     @GetMapping("/hello/{name}")
     public String hello(@PathVariable String name) {
-        return "hello "+name+"，This is the second message";
+        return name + ", " + hello;
     }
 }

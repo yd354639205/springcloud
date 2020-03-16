@@ -1,0 +1,17 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/ydidea/spring-cloud-config.git
+          search-paths: config
+          username: 354639205@qq.com
+          password: yd200002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
