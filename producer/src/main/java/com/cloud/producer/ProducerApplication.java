@@ -20,7 +20,8 @@ public class ProducerApplication {
     }
 
     @GetMapping("/hello/{name}")
-    public String hello(@PathVariable String name) {
+    public String hello(@PathVariable String name) throws Exception {
         return name + ", " + hello;
+//        throw new Exception("error");
     }
 }

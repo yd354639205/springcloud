@@ -7,3 +7,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka/
+zuul:
+  retryable: true
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 0
