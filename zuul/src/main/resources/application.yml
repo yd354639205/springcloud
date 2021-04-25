@@ -9,6 +9,10 @@ eureka:
       defaultZone: http://localhost:8000/eureka/
 zuul:
   retryable: true
+  routes:
+    consumer:
+      path: /consumer/**
+      serviceId: spring-cloud-consumer
 ribbon:
   MaxAutoRetries: 2
   MaxAutoRetriesNextServer: 0

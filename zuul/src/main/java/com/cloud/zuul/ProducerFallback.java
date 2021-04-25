@@ -31,12 +31,12 @@ public class ProducerFallback implements FallbackProvider {
             }
 
             @Override
-            public int getRawStatusCode(){
+            public int getRawStatusCode() {
                 return 200;
             }
 
             @Override
-            public String getStatusText(){
+            public String getStatusText() {
                 return "OK";
             }
 
@@ -46,7 +46,7 @@ public class ProducerFallback implements FallbackProvider {
             }
 
             @Override
-            public InputStream getBody(){
+            public InputStream getBody() {
                 return new ByteArrayInputStream("The service is unavailable.".getBytes());
             }
 

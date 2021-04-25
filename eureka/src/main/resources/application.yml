@@ -7,6 +7,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:${server.port}/eureka/
+    register-with-eureka: false
+    fetch-registry: false
 
 ---
 spring:
@@ -51,7 +53,6 @@ server:
 eureka:
   instance:
     hostname: peer3
-    lease-expiration-duration-in-seconds:
   client:
     service-url:
       defaultZone: http://peer1:8000/eureka/,http://peer2:8001/eureka/

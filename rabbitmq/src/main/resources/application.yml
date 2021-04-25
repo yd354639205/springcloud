@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-cloud-rabbitmq
+  rabbitmq:
+    host: 172.0.13.138
+server:
+  port: 9010

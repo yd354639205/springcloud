@@ -1,6 +1,15 @@
 spring:
   application:
     name: spring-cloud-producer
+  cloud:
+    config:
+      name: config
+      profile: prod
+      uri: http://localhost:8001/
+      label: master
+      discovery:
+        enabled: true
+        service-id: spring-cloud-config
 server:
   port: 9000
 eureka:
